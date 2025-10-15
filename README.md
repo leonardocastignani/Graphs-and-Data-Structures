@@ -1,60 +1,60 @@
 <h2 align="center">
-  Università degli Studi di Camerino<br>
-  Scuola di Scienze e Tecnologie<br>
-  Corso di Laurea in Informatica<br>
-  Corso di Algoritmi e Strutture Dati 2024/2025<br>
-  Parte di Laboratorio (6 CFU)<br>
+  University of Camerino<br>
+  School of Science and Technology<br>
+  Degree in Computer Science<br>
+  Algorithms and Data Structures Course 2024/2025<br>
+  Laboratory Part (6 CFU)<br>
   <br>
-  Istruzioni per la realizzazione del Progetto 2<br>
+    Instructions for Project 2<br>
   <br>
-  Progetto2: Implementazione di Grafi e Strutture Dati per lavorare su grafi 
+  Project 2: Implementation of Graphs and Data Structures for Working with Graphs 
 </h2>
 
 ---
 
-## **Grafo non orientato con matrice di adiacenza**
-La classe `AdjacencyMatrixUndirectedGraph<L>` rappresenta un grafo non orientato utilizzando una **matrice di adiacenza dinamica**:
-- Gli archi sono memorizzati come oggetti (`GraphEdge<L>`).
-- La matrice si ridimensiona automaticamente in caso di inserimento o cancellazione di nodi.
-- Gli indici dei nodi seguono l'ordine di inserimento e vengono riciclati in caso di cancellazione.
+## **Undirected graph with adjacency matrix**
+The class `Adjacency Matrix Undirected Graph<L>` represents an undirected graph using a **dynamic adjacency matrix**:
+- Arches are stored as objects (`GraphEdge<L>`).
+- The matrix automatically resizes as nodes are inserted or deleted.
+- Node indices follow the order of insertion and are recycled on deletion.
 
 ---
 
-## **Insiemi disgiunti con foreste**
-La classe `ForestDisjointSets<E>` gestisce una collezione di insiemi disgiunti utilizzando **foreste di alberi**:
-- Ogni insieme è rappresentato da un albero, con nodi che contengono:
-  - Un puntatore al genitore (`parent`).
-  - Un campo `rank` (limite superiore all'altezza del sottoalbero).
-- **Operazioni principali**:
-  - **makeSet(x)**: Crea un nuovo insieme disgiunto.
-  - **findSet(x)**: Trova il rappresentante dell'insieme a cui appartiene `x`, applicando la **compressione del cammino**.
-  - **union(x, y)**: Unisce due insiemi, utilizzando l'**unione per rango**.
+## **Disjoint sets with forests**
+The `ForestDisjointSets<E>` class manages a collection of disjoint sets using **forests of trees**:
+- Each set is represented by a tree, with nodes containing:
+  - A pointer to the parent (`parent`).
+  - A `rank` field (upper bound on the height of the subtree).
+- **Main operations**:
+  - **makeSet(x)**: Creates a new disjoint set.
+  - **findSet(x)**: Find the representative of the set to which `x` belongs, applying **path compression**.
+  - **union(x, y)**: Joins two sets, using **rank union**.
 
 ---
 
-## **Calcolo delle componenti connesse**
-Un algoritmo implementato nella classe `UndirectedGraphConnectedComponentsComputer<L>` calcola le **componenti connesse** di un grafo non orientato:
-- Utilizza la struttura degli insiemi disgiunti per determinare i nodi raggiungibili tra loro.
+## **Calculation of connected components**
+An algorithm implemented in the class `UndirectedGraphConnectedComponentsComputer<L>` computes the **connected components** of an undirected graph:
+- It uses the structure of disjoint sets to determine which nodes are reachable from each other.
 
 ---
 
-## **Algoritmo di Kruskal per l'albero minimo ricoprente (MST)**
-L'algoritmo di Kruskal, implementato nella classe `KruskalMSP<L>`, calcola l'**albero minimo ricoprente** in un grafo pesato:
-- Utilizza la classe `ForestDisjointSets` per gestire gli insiemi disgiunti.
-- Ordina gli archi in base al peso per costruire l'albero.
+## **Kruskal's Minimum Spanning Tree (MST) Algorithm**
+Kruskal's algorithm, implemented in the `KruskalMSP<L>` class, computes the **minimum spanning tree** in a weighted graph:
+- Use the `Forest Disjoint Sets` class to handle disjoint sets.
+- Sort the bows by weight to build the tree.
 
 ---
 
-## **Riferimenti teorici**
-Il progetto si basa sui concetti presentati nel libro **"Introduzione agli algoritmi"** di Cormen, Leiserson, Rivest e Stein:
-- **Capitolo 21**: Insiemi disgiunti e loro implementazione con foreste.
-- **Capitolo 23**: Algoritmi golosi per il calcolo dell'albero minimo ricoprente.
+## **Theoretical references**
+The project is based on the concepts presented in the book **"Introduction to Algorithms"** by Cormen, Leiserson, Rivest and Stein:
+- **Chapter 21**: Disjoint sets and their implementation with forests.
+- **Chapter 23**: Greedy algorithms for computing the minimum spanning tree.
 
 ---
 
-## **Punti chiave**
-- **Matrice di adiacenza dinamica**: Rappresentazione efficiente di grafi non orientati con archi memorizzati come oggetti.
-- **Foreste di alberi per insiemi disgiunti**: Gestione ottimizzata tramite euristiche di unione per rango e compressione del cammino.
-- **Componenti connesse**: Calcolo delle componenti di un grafo utilizzando insiemi disgiunti.
-- **Algoritmo di Kruskal**: Costruzione di un albero minimo ricoprente in grafi pesati, con ordinamento degli archi e gestione degli insiemi disgiunti.
-- **Efficienza**: Le strutture e gli algoritmi sono progettati per garantire prestazioni ottimali in termini di tempo e spazio.
+## **Key points**
+- **Dynamic adjacency matrix**: Efficient representation of undirected graphs with edges stored as objects.
+- **Forests of trees for disjoint sets**: Optimized handling via rank-merge and path compression heuristics.
+- **Connected components**: Computing the components of a graph using disjoint sets.
+- **Kruskal's algorithm**: Construction of a minimum spanning tree in weighted graphs, with edge ordering and handling of disjoint sets.
+- **Efficiency**: The structures and algorithms are designed to ensure optimal performance in terms of time and space.
